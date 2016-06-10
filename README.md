@@ -41,11 +41,23 @@ Navigate to the automation tests directory ( path/to/advisibilityautotest ) and 
 cd path/to/advisibilityautotest
 
 //1.Run the tests for Internet Explorer
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.urlNOT_USED=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser="internet explorer" verify
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser="internet explorer" verify
 
 //2.Run the tests for Google Chrome
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.urlNOT_USED=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser=chrome verify
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser=chrome verify
 
 //3.Run the tests for Firefox
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.urlNOT_USED=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
+```
+
+##Running the tests with the production lib
+```sh
+//1.Run the tests for Internet Explorer
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser="internet explorer" verify
+
+//2.Run the tests for Google Chrome
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser=chrome verify
+
+//3.Run the tests for Firefox
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
 ```
