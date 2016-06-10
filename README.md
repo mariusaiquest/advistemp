@@ -49,6 +49,7 @@ mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=
 //3.Run the tests for Firefox
 mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
 ```
+`HOST_ALIAS` represents an alias for the localhost. This param is used for the NonFriendlyFrame tests
 
 ##Running the tests with the production lib
 ```sh
