@@ -25,20 +25,20 @@ Navigate to the directory where the selenium-server-standalone jar is placed, an
 cd path/to/selenium-server-standalone/
 
 //Start the server
-java -jar selenium-server-standalone-2.53.0.jar -role hub -hubConfig hub.json
+java -jar selenium-server-standalone-2.53.0.jar -role hub -hubConfig path/to/hub.json
 
 //Start the node when running tests for Internet Exeplorer
-java -Dwebdriver.ie.driver="PATH_TO_IE_DRIVER\IEDriverServer.exe" -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig node.json
+java -Dwebdriver.ie.driver="PATH_TO_IE_DRIVER\IEDriverServer.exe" -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig path/to/node.json
 
 OR
 
 //Start the node when running tests for Google Chrome 
-java -Dwebdriver.chrome.driver="PATH_TO_CHROME_DRIVER\chromedriver.exe" -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig node.json
+java -Dwebdriver.chrome.driver="PATH_TO_CHROME_DRIVER\chromedriver.exe" -jar selenium-server-standalone-2.53.0.jar -role node -nodeConfig path/to/node.json
 ```
 
 Navigate to the automation tests directory ( path/to/advisibilityautotest ) and run the following commands:
 ```sh
-cd path/to/advisibilityautotest
+cd path/to/advisibilityAutomationTests
 
 //1.Run the tests for Internet Explorer
 mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser="internet explorer" verify
@@ -47,18 +47,10 @@ mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=
 mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser=chrome verify
 
 //3.Run the tests for Firefox
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
+
 ```
-`HOST_ALIAS` represents an alias for the localhost. This param is used for the non friendly iframe tests
 
-##Running the tests with the production lib
+If the production library should be used for tests, the `-Dproduction.library.url` parameter should be added:
 ```sh
-//1.Run the tests for Internet Explorer
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser="internet explorer" verify
-
-//2.Run the tests for Google Chrome
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dselenium.browser=chrome verify
-
-//3.Run the tests for Firefox
-mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df  -Dproduction.library.url=http://aka-cdn-ns.adtechus.com -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] verify
+mvn -Dlibrary.version=adtechbrands092348fjlsmdhlwsl239fh3df -Dselenium.platform=WINDOWS -Dtest.host.alias=[HOST_ALIAS] -Dproduction.library.url=http://aka-cdn-ns.adtechus.com verify 
 ```
